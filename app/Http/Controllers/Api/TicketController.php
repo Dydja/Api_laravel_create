@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Ticket;
 use App\Models\User;
+use App\Models\Ticket;
 use App\Models\Destination;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Http\Requests\SignRequest;
 use Illuminate\Support\Facades\DB;
-use App\Http\Resources\Ticket as ResourcesTicket;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\Ticket as ResourcesTicket;
 
 class TicketController extends Controller
 {
@@ -34,41 +35,45 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        //Enregistrons le ticket
-        $request->validate([
-        'voyage'=> 'required|string',
-        'cabine'=> 'required|string',
-        'passagers'=> 'required|',
-        'departDe'=> 'required|string',
-        'arriveeA'=> 'required|string',
-        'dateVoyage'=> 'required|date',
-        'user_id' => ['required',Rule::exists('users','id')],
-        'destination_id' => ['required',Rule::exists('destinations','id')],
 
-        ]);
+        // //Enregistrons le ticket
+        // $try = $request->validate([
+        // 'voyage'=> 'required|string',
+        // 'cabine'=> 'required|string',
+        // 'passagers'=> 'required|',
+        // 'departDe'=> 'required|string',
+        // 'arriveeA'=> 'required|string',
+        // 'dateVoyage'=> 'required|date',
+        // 'user_id' => ['required',Rule::exists('users','id')],
+        // 'destination_id' => ['required',Rule::exists('destinations','id')],
 
-          //instance du model destination
-         /* $destination = new Destination();
-          $id = Destination::first('id')->orderByDesc('id')->get();*/
+        // ]);
 
 
-        $ticket = Ticket::create([
-            'voyage' => $request->voyage,
-            'cabine' => $request->cabine,
-            'passagers' => $request->passagers,
-            'departDe' => $request->departDe,
-            'arriveeA' => $request->arriveeA,
-            'dateVoyage' => $request->dateVoyage,
-            'user_id'=>$request->user_id,
-            'destination_id' =>$request->destination_id
-         ]);
+        //   //instance du model destination
+        //  /* $destination = new Destination();
+        //   $id = Destination::first('id')->orderByDesc('id')->get();*/
 
-        return response()->json([
-            "message"=>'Billet reservé avec succès',
-            'success' => 'true',
-            'billet'=> $ticket,
 
-         ],201);
+        // $ticket = Ticket::create([
+        //     'voyage' => $request->voyage,
+        //     'cabine' => $request->cabine,
+        //     'passagers' => $request->passagers,
+        //     'departDe' => $request->departDe,
+        //     'arriveeA' => $request->arriveeA,
+        //     'dateVoyage' => $request->dateVoyage,
+        //     'user_id'=>$request->user_id,
+        //     'destination_id' =>$request->destination_id
+        //  ]);
+
+
+
+        // return response()->json([
+        //     "message"=>'Billet reservé avec succès',
+        //     'success' => 'true',
+        //     'billet'=> $ticket,
+
+        //  ],201);
     }
 
     /**
@@ -107,4 +112,10 @@ class TicketController extends Controller
     {
         //
     }
+    public function doLogin(SignRequest $request)
+    {
+        return "Success" ;
+    }
+
+
 }

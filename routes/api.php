@@ -21,4 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('users',UserController::class)->except('update');
-Route::apiResource('tickets',TicketController::class);
+//Route::apiResource('tickets',TicketController::class);
+
+// Route::post('index',[TicketController::class,'doLogin']);
