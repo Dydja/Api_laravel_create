@@ -37,34 +37,34 @@ class TicketController extends Controller
     {
 
         // //Enregistrons le ticket
-        // $try = $request->validate([
-        // 'voyage'=> 'required|string',
-        // 'cabine'=> 'required|string',
-        // 'passagers'=> 'required|',
-        // 'departDe'=> 'required|string',
-        // 'arriveeA'=> 'required|string',
-        // 'dateVoyage'=> 'required|date',
-        // 'user_id' => ['required',Rule::exists('users','id')],
-        // 'destination_id' => ['required',Rule::exists('destinations','id')],
+        $try = $request->validate([
+        'voyage'=> 'required|string',
+        'cabine'=> 'required|string',
+        'passagers'=> 'required|',
+        'departDe'=> 'required|string',
+        'arriveeA'=> 'required|string',
+        'dateVoyage'=> 'required|date',
+        'user_id' => ['required',Rule::exists('users','id')],
+        'destination_id' => ['required',Rule::exists('destinations','id')],
 
-        // ]);
-
-
-        //   //instance du model destination
-        //  /* $destination = new Destination();
-        //   $id = Destination::first('id')->orderByDesc('id')->get();*/
+        ]);
 
 
-        // $ticket = Ticket::create([
-        //     'voyage' => $request->voyage,
-        //     'cabine' => $request->cabine,
-        //     'passagers' => $request->passagers,
-        //     'departDe' => $request->departDe,
-        //     'arriveeA' => $request->arriveeA,
-        //     'dateVoyage' => $request->dateVoyage,
-        //     'user_id'=>$request->user_id,
-        //     'destination_id' =>$request->destination_id
-        //  ]);
+          //instance du model destination
+         /* $destination = new Destination();
+          $id = Destination::first('id')->orderByDesc('id')->get();*/
+
+
+        $ticket = Ticket::create([
+            'voyage' => $request->voyage,
+            'cabine' => $request->cabine,
+            'passagers' => $request->passagers,
+            'departDe' => $request->departDe,
+            'arriveeA' => $request->arriveeA,
+            'dateVoyage' => $request->dateVoyage,
+            'user_id'=>$request->user_id,
+            'destination_id' =>$request->destination_id
+         ]);
 
 
 

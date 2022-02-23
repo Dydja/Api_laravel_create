@@ -9,9 +9,7 @@ class Ticket extends Model
 {
     use HasFactory;
     //declarons nos champs
-    protected $guarded = [
-
-    ];
+    protected $guarded = [];
 
     public function users()
    {

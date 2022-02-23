@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('cabine');
             $table->string('passagers');
             $table->string('departDe');
-            $table->string('arriveeA');
             $table->date('dateVoyage');
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('destination_id')->constrained('destinations')->onUpdate('cascade')->onDelete('cascade');

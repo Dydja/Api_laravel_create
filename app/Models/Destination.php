@@ -11,6 +11,7 @@ class Destination extends Model
      //declarons nos champs
      protected $fillable = [
         'name',
+        'pays',
         'distance'
 
 

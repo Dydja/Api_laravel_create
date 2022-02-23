@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('phone')->unique();
             $table->string('password');
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
